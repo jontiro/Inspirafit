@@ -1,0 +1,46 @@
+@font-face {
+    font-family: 'CodecPro-Regular';
+    src: url(fonts/CodecPro-Regular.ttf);
+    font-weight: normal;
+}
+
+button{
+    font-family: 'CodecPro-Regular';
+    font-weight: bold;
+    text-overflow: ellipsis;
+}
+.shadow-effect {
+    font-size: clamp(1.5vw, 2.5vw, 1rem);
+    white-space: normal;
+    box-sizing: border-box;
+    width: 30%;
+    max-width: 30%;
+    margin: 1.5%;
+    border: 2px solid black;
+    color: black;
+    padding: 3% 7%;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 8px 8px rgba(0, 0, 0, 1); /* Aumenta el desplazamiento y la opacidad de la sombra */
+    background-color: #ffffff; /* Color base del botón */
+    transition: box-shadow 0.3s ease-in-out; /* Transición suave del efecto de sombra */
+}
+.shadow-effect:hover {
+    background-color: #0a1f50; /* Color base del botón */
+    box-shadow: 8px 8px rgba(0, 0, 0, 0.5); /* Aumenta el desplazamiento y la opacidad de la sombra */
+    border: 2px solid #0a1f50;
+    color: white;
+}
+
+.container{
+    width:80%;
+}
+
+.p1{
+    font-family: "Arial Black", serif;
+    font-size: 3em;
+}
+
+.imagen{
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+}
