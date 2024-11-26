@@ -1,0 +1,135 @@
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: CodePro;
+    src: url('fonts/CodePro.ttf');
+}
+
+@font-face {
+    font-family: OpenSans;
+    src: url('fonts/OpenSans.ttf');
+}
+
+@font-face {
+    font-family: PlayfairDisplay;
+    src: url('fonts/PlayfairDisplay.ttf');
+}
+
+@font-face {
+    font-family: Brittany;
+    src: url('fonts/Brittany.ttf');
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', CodePro;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f3f3f3;
+}
+
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 90%;
+    max-width: 900px;
+    justify-content: center;
+}
+
+.backLog {
+    background: linear-gradient(to right, #aaaaaa, #ffffff);
+    max-width: 425px;
+    min-height: 500px;
+    padding: 20px;
+    color: black; /* Cambié a negro para que contraste mejor */
+    border-radius: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Añade sombra para resaltar */
+}
+
+.backLog h1 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.backLog p {
+    font-size: 1.1em;
+    margin: 10px 0 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.buttonLog {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    color: #ffffff;
+    padding: 10px;
+    background-color: #0065db; /* Azul del botón */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+}
+
+.buttonLog:hover {
+    background-color: #004aad; /* Color más oscuro al pasar el mouse */
+}
+
+.container {
+    background-color: white;
+    background: linear-gradient(to right, #5de0e6, #004aad); /* Degradado azul */
+    max-width: 425px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    flex: 1;
+    text-align: center;
+}
+
+.img-contenedor img{
+    width: 175px;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.3em;
+}
+
+.frase {
+    font-family: 'Roboto', PlayfairDisplay;
+    font-size: 1em;
+    margin: 10px 0;
+}
+
+.firma {
+    font-family: 'Roboto', Brittany;
+    font-size: 1.9em;
+}
+
+/* Responsivo */
+@media screen and (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+}
