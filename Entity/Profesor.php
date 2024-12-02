@@ -8,6 +8,7 @@ class Profesor {
     private $pDisciplinas_Previas;
     private $pDomicilio;
     private $pTelefono;
+    private $pEdad;
     private $pEmail;
     private $pFecha_Nacimiento;
     private $pLugar_Nacimiento;
@@ -47,6 +48,10 @@ class Profesor {
 
     public function getPTelefono() {
         return $this->pTelefono;
+    }
+
+    public function getPEdad() {
+        return $this->pEdad;
     }
 
     public function getPEmail() {
@@ -121,6 +126,10 @@ class Profesor {
 
     public function setPTelefono($pTelefono) {
         $this->pTelefono = $pTelefono;
+    }
+
+    public function setPTelefono($pEdad) {
+        $this->pEdad = $pEdad;
     }
 
     public function setPEmail($pEmail) {
