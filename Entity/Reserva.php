@@ -1,16 +1,16 @@
 <?php
 
 class Reserva{
-    private $clase_interes;
+    private $NRC;
 
 // Getter
-    public function getClaseInteres() {
-        return $this->clase_interes;
+    public function getNRC() {
+        return $this->NRC;
     }
 
 // Setter
-    public function setClaseInteres($clase_interes) {
-        $this->clase_interes = $clase_interes;
+    public function setNRC($NRC) {
+        $this->NRC = $NRC;
     }
 
 }

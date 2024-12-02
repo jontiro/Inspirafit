@@ -11,11 +11,17 @@
         <!-- Caja de Login -->
         <section id="Login" class="backLog">
             <h1>Login</h1>
+            <form action = "../Control/ControlLogin.php" method = "POST">
             <p>Email:</p>
-            <input type="email" name="correo" value="usuario@gmail.com" class="label"><br>
+            <input type="email" name="correo" value="usuario@gmail.com" class="label" requiered><br>
             <p>Contraseña:</p>
-            <input type="password" name="Contraseña"><br><br>
+            <input type="password" name="Contraseña" required><br><br>
             <button class="buttonLog">Continuar</button>
+            </form>
+            <!-- Si hay un error de login, se muestra aquí -->
+            <?php if (isset($error)): ?>
+            <p style="color: red;"><?= htmlspecialchars($error) ?></p>
+            <?php endif; ?>
         </section>
 
         <!-- Caja de imágenes y texto -->

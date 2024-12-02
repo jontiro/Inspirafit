@@ -1,19 +1,19 @@
 <?php
-
+namespace Entity;
 class ListaUsuarios{
 private $id;
 private $email;
-private $password;
+private $passwordHash;
 private $rol;
 
 const ROL_ADMIN = 1;
 const ROL_PROFE = 2;
 const ROL_ALUMNO = 3;
 
-public function __construct($id, $email, $password, $rol){
+public function __construct($id, $email, $passwordHash, $rol){
     $this->id = $id;
     $this->email = $email;
-    $this->password = password_hash($password, PASSWORD_BCRYPT);
+    $this->passwordHash = $passwordHash;
     $this->rol = $rol;
 }
 
@@ -52,17 +52,17 @@ public function __construct($id, $email, $password, $rol){
     /**
      * @return mixed
      */
-    public function getPassword()
+    public function getPasswordHash()
     {
-        return $this->password;
+        return $this->passwordHash;
     }
 
     /**
-     * @param mixed $password
+     * @param mixed $passwordHash
      */
-    public function setPassword($password)
+    public function setPasswordHash($passwordHash)
     {
-        $this->password = password_hash($password, PASSWORD_BCRYPT);
+        $this->passwordHash = $passwordHash;
     }
 
     /**
