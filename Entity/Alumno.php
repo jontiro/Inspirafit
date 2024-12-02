@@ -8,6 +8,7 @@ class Alumno{
      private $disciplinas_previas;
      private $domicilio;
      private $telefono;
+     private $edad;
      private $email;
      private $fecha_nacimiento;
      private $lugar_nacimiento;
@@ -180,30 +181,21 @@ class Alumno{
         $this->disciplinas_interes = $disciplinas_interes;
     }
 
+    public function getEdad()
+    {
+        return $this->edad;
+    }
+
+    public function setEdad($edad)
+    {
+        $this->edad = $edad;
+    }
+
     public function setFechaIngreso($fecha_ingreso) {
         $this->fecha_ingreso = $fecha_ingreso;
     }
 
- // Función para guardar en la base de datos
- public function guardar($db) {
-    try {
-        // Preparar la consulta SQL usando mysqli
-        $query = "INSERT INTO Alumno (
-            nombre, apellidoP, apellidoM, disciplinas_previas, domicilio, telefono, email, fecha_nacimiento, lugar_nacimiento, peso, estatura, nivel_estudios, lugar_estudios, profesion, lugar_ejerce, puesto, problemas_salud, disciplinas_interes, fecha_ingreso, clase
-        ) VALUES (
-            '$this->nombre', '$this->apellidoP', '$this->apellidoM', '$this->disciplinas_previas', '$this->domicilio', '$this->telefono', '$this->email', '$this->fecha_nacimiento', '$this->lugar_nacimiento', '$this->peso', '$this->estatura', '$this->nivel_estudios', '$this->lugar_estudios', '$this->profesion', '$this->lugar_ejerce', '$this->puesto', '$this->problemas_salud', '$this->disciplinas_interes', '$this->fecha_ingreso', '$this->clase'
-        )";
 
-        // Ejecutar la consulta
-        if ($db->query($query)) {
-            return "Alumno guardado exitosamente.";
-        } else {
-            return "Error al guardar el alumno: " . $db->error;
-        }
-    } catch (Exception $e) {
-        return "Error: " . $e->getMessage();
-    }
-}
 }
 
 ?>
