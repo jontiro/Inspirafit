@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $rutaDestino = __DIR__ . '/../uploads/' . basename($archivo['name']);
                 if (move_uploaded_file($archivo['tmp_name'], $rutaDestino)) {
                     if ($recurso->agregarRecurso($idAlumno, $tipo, $rutaDestino)) {
-                        header("Location: ControlRecomendacion.php?mensaje=Documento cargado correctamente");
+                        header("Location: controlRecomendacion.php?mensaje=Documento cargado correctamente");
                         exit();
                     } else {
                         echo "Error al guardar el recurso en la base de datos.";
@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } elseif ($tipo === 'enlace') {
             $enlace = $_POST['enlace'];
             if ($recurso->agregarRecurso($idAlumno, $tipo, null, $enlace)) {
-                header("Location: ControlRecomendacion.php?mensaje=Enlace agregado correctamente");
+                header("Location: controlRecomendacion.php?mensaje=Enlace agregado correctamente");
                 exit();
             } else {
                 echo "Error al guardar el recurso en la base de datos.";
