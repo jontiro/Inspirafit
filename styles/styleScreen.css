@@ -145,6 +145,80 @@ img {
 }
 
 
+form{
+    gap: 10px;
+    padding: 1rem;
+    font-family: "CodecPro-Regular", sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+form input[type="text"],
+form input[type="email"]{
+    padding:3px 10px;
+    border:1px solid black;
+    border-radius:8px;
+    background-color:#ffffff;
+    margin:8px 0;
+}
+
+input.generales{
+    width: 30%;
+    height: 2rem;
+}
+
+textarea.big{
+    gap: 10px;
+    font-family: sans-serif;
+    border:1px solid black;
+    border-radius: 8px;
+    resize: none;
+    width: 60%;
+    height: 8rem;
+    text-align: left; /* Alineación horizontal */
+    padding: 10px; /* Espaciado interno para separar el texto del borde */
+}
+
+input.largo{
+    width: 80%;
+    height: 2rem;
+}
+
+form input[type="number"], form input[type="date"]{
+    width:5rem;
+    height: 2rem;
+    padding:3px 10px;
+    border:1px solid black;
+    border-radius:8px;
+    background-color:#ffffff;
+    margin:8px 0;
+    display:inline-block;
+}
+
+
+.submit {
+    font-size: clamp(0.8vw, 2.5vw, 1rem);
+    border-radius: 10px;
+    height: 5vw;
+    width: 10vw; /* Se ajusta al tamaño del contenedor */
+    max-width: 30%; /* Define un límite para pantallas grandes */
+    margin: 1.5%;
+    border: solid black;
+    color: black;
+    font-family: "OpenSans", sans-serif;
+    font-weight: bold;
+
+    cursor: pointer;
+    box-shadow: 8px 8px rgba(0, 0, 0, 1); /* Aumenta el desplazamiento y la opacidad de la sombra */
+    background-color: #ffffff; /* Color base del botón */
+    transition: box-shadow 0.3s ease-in-out; /* Transición suave del efecto de sombra */
+}
+.submit:hover {
+    background-color: #0a1f50; /* Color base del botón */
+    box-shadow: 8px 8px rgba(0, 0, 0, 0.5); /* Aumenta el desplazamiento y la opacidad de la sombra */
+    border: 2px solid #0a1f50;
+    color: white;
+}
 
 
 /* Media queries para diseño responsivo */
