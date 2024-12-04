@@ -1,13 +1,13 @@
 <?php
 
 class Alumno{
-    private $contrasena;
     private $nombre;
     private $apellidoP;
     private $apellidoM;
     private $disciplinas_previas;
     private $domicilio;
     private $telefono;
+    private $edad;
     private $email;
     private $fecha_nacimiento;
     private $lugar_nacimiento;
@@ -37,10 +37,6 @@ private function generarContrasenaPredeterminada() {
 
 
   // Métodos set
-  public function setContrasena($contrasena) {
-    $this->contrasena = $contrasena;
-}
-
 public function setNombre($nombre) {
     $this->nombre = $nombre;
 }
@@ -64,6 +60,11 @@ public function setDomicilio($domicilio) {
 public function setTelefono($telefono) {
     $this->telefono = $telefono;
 }
+
+public function setEdad($edad) {
+    $this->edad = $edad;
+}
+
 
 public function setEmail($email) {
     $this->email = $email;
@@ -119,10 +120,6 @@ public function setFechaIngreso($fecha_ingreso) {
 
 
 // Métodos get
-public function getContrasena() {
-    return $this->contrasena;
-}
-
 public function getNombre() {
     return $this->nombre;
 }
@@ -145,6 +142,10 @@ public function getDomicilio() {
 
 public function getTelefono() {
     return $this->telefono;
+}
+
+public function getEdad() {
+    return $this->edad;
 }
 
 public function getEmail() {
@@ -206,10 +207,10 @@ public function getFechaIngreso() {
         try {
             // Preparar la consulta SQL
             $query = "INSERT INTO alumno (
-                contrasena, nombre, apellidoP, apellidoM, disciplinas_previas, domicilio,
-                telefono, email, fecha_nacimiento, lugar_nacimiento, peso, estatura,
+                nombre, apellidoP, apellidoM, disciplinas_previas, domicilio,
+                telefono, edad, email, fecha_nacimiento, lugar_nacimiento, peso, estatura,
                 nivel_estudios, lugar_estudios, profesion, lugar_ejerce, puesto,
-                problemas_salud, disciplinas_interes, fecha_ingreso, archivoPDF
+                problemas_salud, disciplinas_interes, fecha_ingreso
             ) VALUES (
                 ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
             )";
@@ -224,13 +225,13 @@ public function getFechaIngreso() {
             // Vincular parámetros
             $stmt->bind_param(
                 'ssssssssssddsssssssss',
-                $this->contrasena,
                 $this->nombre,
                 $this->apellidoP,
                 $this->apellidoM,
                 $this->disciplinas_previas,
                 $this->domicilio,
                 $this->telefono,
+                $this->edad,
                 $this->email,
                 $this->fecha_nacimiento,
                 $this->lugar_nacimiento,
@@ -243,8 +244,7 @@ public function getFechaIngreso() {
                 $this->puesto,
                 $this->problemas_salud,
                 $this->disciplinas_interes,
-                $this->fecha_ingreso,
-                $this->archivoPDF
+                $this->fecha_ingreso
             );
 
             // Ejecutar la consulta
