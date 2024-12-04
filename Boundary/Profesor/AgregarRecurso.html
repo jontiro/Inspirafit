@@ -16,7 +16,7 @@
 </div>
 <div class="container">
   <div class="menu">
-    <a href="ConsultarListaAlumnos.html">
+    <a href="ConsultarListaAlumnos.php">
       <button class="btn selec">Lista de Alumnos</button></a>
     <a href="AgregarRecurso.html">
       <button class="btn degr">Agregar documentos o enlaces</button></a>
@@ -30,7 +30,7 @@
       <p><?= htmlspecialchars($message) ?></p>
       <?php endif; ?>
 
-      <form action="../../../Control/ControlGestionPaquetes.php" method="POST" class="Registro">
+      <form action="../../../Control/ControlRecurso" method="POST" class="Registro">
         <label for="nombre">Nombre del alumno</label>
         <input type="text" id="nombre" name="nombre" class="largo" required><br><br>
 
@@ -43,7 +43,7 @@
         <label for="enlaces">Enlaces</label>
         <input type="text" id="enlaces" name="enlaces" class="largo" > <br><br>
 
-        <center><button type="submit" class = "submit">Guardar</button>
+        <center><button type="submit" class = "submit" >Guardar</button>
           <button type="reset" class="reset">Limpiar</button></center>
       </form>
     </div>

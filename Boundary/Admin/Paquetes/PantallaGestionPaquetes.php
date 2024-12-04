@@ -25,10 +25,10 @@
         <a href="../Profesores/PantallaGestionProfesores.html">
             <button class="btn selec">Gestionar Profesores</button>
         </a>
-        <a href="../Clases/PantallaGestionClases.html">
+        <a href="../Clases/PantallaGestionClases.php">
             <button class="btn selec">Gestionar Clases</button>
         </a>
-        <a href="PantallaGestionPaquetes.html">
+        <a href="PantallaGestionPaquetes.php">
             <button class="btn degr">Gestionar Paquetes</button>
         </a>
         <a href="../Pagos/PantallaPagoAlumnos.html">
