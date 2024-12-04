@@ -24,7 +24,23 @@
       <button class="btn degr">Registrar avances</button></a>
   </div>
   <div class="main">
-    <!-- AQUI VA FORMULARIO DE REGISTRO DE ALUMNOS -->
+    <?php if (!empty($message)): ?>
+    <p><?= htmlspecialchars($message) ?></p>
+    <?php endif; ?>
+
+    <form action="../../Control/ControlRegistro.php" method="POST" class="Registro">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" class="largo" required><br><br>
+
+      <label for="clase">Clase</label>
+      <input type="text" id="clase" name="clase" class="largo" required><br><br>
+
+      <label for = "comentarios">Comentarios</label>
+      <textarea id="comentarios" name="comentarios" class="big" required></textarea><br><br>
+
+      <button type="submit" class = "submit">Guardar</button>
+      <button type="reset" class="reset">Limpiar</button>
+    </form>
   </div>
 </div>
 </body>

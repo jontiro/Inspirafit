@@ -25,6 +25,28 @@
   </div>
   <div class="main">
     <!-- AQUI VA FORMULARIO DE REGISTRO DE ALUMNOS -->
+    <div class="main">
+      <?php if (!empty($message)): ?>
+      <p><?= htmlspecialchars($message) ?></p>
+      <?php endif; ?>
+
+      <form action="../../../Control/ControlGestionPaquetes.php" method="POST" class="Registro">
+        <label for="nombre">Nombre del alumno</label>
+        <input type="text" id="nombre" name="nombre" class="largo" required><br><br>
+
+        <label for="clases">Clases</label>
+        <input type="text" id="clases" name="clases" class="largo" required><br><br>
+
+        <label for="documentos">Documentos</label>
+        <input type="text" id="documentos" name="documentos" class="largo" ><br><br>
+
+        <label for="enlaces">Enlaces</label>
+        <input type="text" id="enlaces" name="enlaces" class="largo" > <br><br>
+
+        <center><button type="submit" class = "submit">Guardar</button>
+          <button type="reset" class="reset">Limpiar</button></center>
+      </form>
+    </div>
   </div>
 </div>
 </body>
