@@ -185,7 +185,7 @@ input.largo{
 }
 
 form input[type="number"], form input[type="date"]{
-    width:5rem;
+    width:7rem;
     height: 2rem;
     padding:3px 10px;
     border:1px solid black;
@@ -219,6 +219,54 @@ form input[type="number"], form input[type="date"]{
     border: 2px solid #0a1f50;
     color: white;
 }
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilo para las celdas de la tabla */
+table th, table td {
+    border: 1px solid #ADD8E6; /* Bordes de color azul claro */
+    padding: 10px; /* Espacio dentro de las celdas */
+    text-align: center; /* Centrar el texto */
+}
+
+/* Estilo para los encabezados de la tabla */
+table th {
+    background-color: #D3D3F7; /* Fondo azul claro */
+    color: black; /* Color del texto en los encabezados */
+    font-weight: bold; /* Negrita en los encabezados */
+}
+
+/* Estilo para las filas pares */
+table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Fondo gris claro en las filas pares */
+}
+
+/* Estilo para las filas cuando el cursor pasa por encima */
+table tr:hover {
+    background-color: #E6F7FF; /* Fondo azul muy claro al pasar el cursor */
+}
+
+/* Estilo para los botones de eliminar */
+table button {
+    background-color: #4CAF50; /* Verde */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Cambiar color de botón al pasar el cursor */
+table button:hover {
+    background-color: #45a049; /* Verde más oscuro */
+}
+
 
 
 /* Media queries para diseño responsivo */

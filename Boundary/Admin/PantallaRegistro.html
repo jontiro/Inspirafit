@@ -31,7 +31,7 @@
         <a href="Paquetes/PantallaGestionPaquetes.html">
             <button class="btn selec">Gestionar Paquetes</button>
         </a>
-        <a href="PantallaPagoAlumnos.html">
+        <a href="Pagos/PantallaPagoAlumnos.html">
             <button class="btn selec">Registrar Pagos</button>
         </a>
     </div>
@@ -42,7 +42,7 @@
         <p><?= htmlspecialchars($message) ?></p>
         <?php endif; ?>
 
-        <form action="..\..\Control\ControlRegistro.php" method="POST" class="Registro">
+        <form action="../../Control/ControlRegistro.php" method="POST" class="Registro">
             <label for="nombre">Nombre</label>
             <input type="text" id="nombre" name="nombre" class="generales" required>
 

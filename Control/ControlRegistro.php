@@ -1,9 +1,8 @@
 <?php
 namespace Control;
-require_once '../Entity/Alumno.php';
+include_once (__DIR__.'/../Entity/Alumno.php');
 session_start();
-include_once('conf/BaseDatos.php');
-//include_once('../Entity/Alumno.php');
+include_once(__DIR__.'/../conf/BaseDatos.php');
 
 use Entity\Alumno;
 

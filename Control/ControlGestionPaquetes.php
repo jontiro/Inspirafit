@@ -31,22 +31,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-
-<form action="ControlGestionPaquetes.php" method="POST">
-    <label for="nombre">Nombre del paquete:</label>
-    <input type="text" name="nombre" id="nombre" required><br>
-    
-    <label for="fecha_inicio">Fecha de inicio:</label>
-    <input type="date" name="fecha_inicio" id="fecha_inicio" required><br>
-    
-    <label for="fecha_vencimiento">Fecha de vencimiento:</label>
-    <input type="date" name="fecha_vencimiento" id="fecha_vencimiento" required><br>
-    
-    <label for="costo">Costo:</label>
-    <input type="number" name="costo" id="costo" step="0.01" required><br>
-    
-    <label for="numero_clases">Número de clases:</label>
-    <input type="number" name="numero_clases" id="numero_clases" required><br>
-    
-    <button type="submit">Crear paquete</button>
-</form>

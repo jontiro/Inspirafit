@@ -1,6 +1,6 @@
 <<?php
 include_once(__DIR__ . '/../conf/BaseDatos.php');
-include_once(__DIR__ . '/../Entidades/Clase.php');
+include_once(__DIR__ . '/../Entity/Clase.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accion'])) {
     $accion = $_POST['accion'];

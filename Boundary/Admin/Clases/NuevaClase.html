@@ -29,13 +29,36 @@
     <a href="../Paquetes/PantallaGestionPaquetes.html">
       <button class="btn selec">Gestionar Paquetes</button>
     </a>
-    <a href="../PantallaPagoAlumnos.html">
+    <a href="../Pagos/PantallaPagoAlumnos.html">
       <button class="btn selec">Registrar Pagos</button>
     </a>
   </div>
 
   <div class="main">
-    <p>HOLaaaaa</p>
+
+    <?php if (!empty($message)): ?>
+    <p><?= htmlspecialchars($message) ?></p>
+    <?php endif; ?>
+
+    <form action="../../../Control/ControlGestionClases.php" method="POST" class="Registro">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" class="generales" required>
+
+      <label for="horario">Horario</label>
+      <input type="text" id="horario" name="horaio" class="generales" required><br><br>
+
+      <label for="profesor">Profesor</label>
+      <input type="text" id="profesor" name="profesor" class="generales" required>
+
+      <label for="cupo">Cupo</label>
+      <input type="number" id="cupo" name="cupo" required><br><br>
+
+      <label for="salon">Sal&oacute;n de Clases</label>
+      <input type="text" id="salon" name=salon class="generales" required><br><br>
+
+      <button type="submit" class = "submit">Guardar</button>
+    </form>
+
   </div>
 </div>
 </body>
