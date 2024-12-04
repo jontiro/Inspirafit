@@ -1,105 +1,94 @@
 <?php
-
-class Clase{
-    private $nombreC;
-    private $fechaInicio;
-    private $fechaTermino;
+namespace Entity;
+class Clase
+{
+    private $materia; // materia
     private $Profesor;
-    private $Costo;
+    private $Cupo;
     private $salonClase;
     private $Horario;
-    private $NRC;
-
     // Getters
 
     /**
-     * @param $nombreC String
-     * @param $Fecha_inicio Date
-     * @param $Fecha_termino Date
+     * @param $materia String
      * @param $Profesor String
-     * @param $Costo Float
+     * @param $Cupo int
      * @param $Salon_Clase String
-     * @param $Horario Date
-     * @param $NRC Int
+     * @param $Horario String
      */
-    public function __construct($nombreC, $Fecha_inicio, $Fecha_termino, $Profesor, $Costo, $Salon_Clase, $Horario, $NRC)
+    public function __construct($materia, $Profesor, $Cupo, $Salon_Clase, $Horario)
     {
-        $this->nombreC = $nombreC;
-        $this->fechaInicio = $Fecha_inicio;
-        $this->fechaTermino = $Fecha_termino;
+        $this->materia = $materia;
         $this->Profesor = $Profesor;
-        $this->Costo = $Costo;
+        $this->Cupo = $Cupo;
         $this->salonClase = $Salon_Clase;
         $this->Horario = $Horario;
-        $this->NRC = $NRC;
     }
 
-    public function getNombreC() {
-        return $this->nombreC;
+    public function getMateria(): string
+    {
+        return $this->materia;
     }
 
-    public function getFechaInicio() {
-        return $this->fechaInicio;
+    public function setMateria(string $materia): void
+    {
+        $this->materia = $materia;
     }
 
-    public function getFechaTermino() {
-        return $this->fechaTermino;
-    }
-
-    public function getProfesor() {
+    public function getProfesor(): string
+    {
         return $this->Profesor;
     }
 
-    public function getCosto() {
-        return $this->Costo;
-    }
-
-    public function getSalonClase() {
-        return $this->salonClase;
-    }
-
-    public function getHorario() {
-        return $this->Horario;
-    }
-
-    public function getNRC()
+    public function setProfesor(string $Profesor): void
     {
-        return $this->NRC;
-    }
-
-    public function setNRC($NRC)
-    {
-        $this->NRC = $NRC;
-    }
-
-
-// Setters
-    public function setNombreC($nombreC) {
-        $this->nombreC = $nombreC;
-    }
-
-    public function setFechaInicio($fechaInicio) {
-        $this->fechaInicio = $fechaInicio;
-    }
-
-    public function setFechaTermino($fechaTermino) {
-        $this->fechaTermino = $fechaTermino;
-    }
-
-    public function setProfesor($Profesor) {
         $this->Profesor = $Profesor;
     }
 
-    public function setCosto($Costo) {
-        $this->Costo = $Costo;
+    public function getCupo(): int
+    {
+        return $this->Cupo;
     }
 
-    public function setSalonClase($salonClase) {
+    public function setCupo(int $Cupo): void
+    {
+        $this->Cupo = $Cupo;
+    }
+
+    public function getSalonClase(): string
+    {
+        return $this->salonClase;
+    }
+
+    public function setSalonClase(string $salonClase): void
+    {
         $this->salonClase = $salonClase;
     }
 
-    public function setHorario($Horario) {
+    public function getHorario(): string
+    {
+        return $this->Horario;
+    }
+
+    public function setHorario(string $Horario): void
+    {
         $this->Horario = $Horario;
+    }
+
+    public function guardar($conexion) {
+        $stmt = $conexion->prepare("INSERT INTO clases (salon, materia, profesor, cupo, horario) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssds", $this->salonClase, $this->materia, $this->Profesor, $this->Cupo, $this->Horario);
+        return $stmt->execute();
+    }
+
+    public static function obtenerTodas($conexion) {
+        return $conexion->query("SELECT * FROM clases");
+    }
+
+    public static function eliminar($conexion, $id) {
+        $stmt = $conexion->prepare("DELETE FROM clases WHERE id = ?");
+        $stmt->bind_param("i", $id);
+        return $stmt->execute();
     }
 
 }

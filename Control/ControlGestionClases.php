@@ -1,4 +1,7 @@
-<<?php
+<?php
+
+use Entity\Clase;
+
 include_once(__DIR__ . '/../conf/BaseDatos.php');
 include_once(__DIR__ . '/../Entity/Clase.php');
 
@@ -7,13 +10,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['accion'])) {
 
     switch ($accion) {
         case 'crear':
-            $salon = $_POST['salon'];
+            $Salon_clase = $_POST['Salon_clase'];
             $materia = $_POST['materia'];
-            $profesor = $_POST['profesor'];
-            $cupo = $_POST['cupo'];
-            $horario = $_POST['horario'];
+            $Profesor = $_POST['Profesor'];
+            $Cupo = $_POST['Cupo'];
+            $Horario = $_POST['Horario'];
 
-            $clase = new Clase($salon, $materia, $profesor, $cupo, $horario);
+            $clase = new Clase($materia, $Profesor, $Cupo, $Salon_clase, $Horario);
             if ($clase->guardar($conexion)) {
                 echo "Clase creada exitosamente";
             } else {
@@ -61,22 +64,4 @@ if ($resultado->num_rows > 0) {
 }
 ?>
 
-<form action="ControlGestionClases.php" method="POST">
-    <label for="salon">Salón:</label>
-    <input type="text" name="salon" id="salon" required><br>
-
-    <label for="materia">Materia:</label>
-    <input type="text" name="materia" id="materia" required><br>
-
-    <label for="profesor">Profesor:</label>
-    <input type="text" name="profesor" id="profesor" required><br>
-
-    <label for="cupo">Cupo:</label>
-    <input type="number" name="cupo" id="cupo" required><br>
-
-    <label for="horario">Horario (ej. Lunes 10:00-12:00, Miércoles 14:00-16:00):</label>
-    <input type="text" name="horario" id="horario" required><br>
-
-    <button type="submit" name="accion" value="crear">Crear Clase</button>
-</form>
 

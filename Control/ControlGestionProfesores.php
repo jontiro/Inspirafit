@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fechaIngreso = $_POST['fechaIngreso'];
 
     // Preparar la consulta SQL
-    $sql = "INSERT INTO Profesor (nombre, apellidoP, apellidoM, fechaNacimiento, telefono, email, domicilio, peso, estatura, nivelEstudios, lugarEstudios, profesion, problemasSalud, disciplinasImpartir, fechaIngreso) 
+    $sql = "INSERT INTO profesor (nombre, apellidoP, apellidoM, fechaNacimiento, telefono, email, domicilio, peso, estatura, nivelEstudios, lugarEstudios, profesion, problemasSalud, disciplinasImpartir, fechaIngreso) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     // Usar una declaración preparada para evitar inyecciones SQL
