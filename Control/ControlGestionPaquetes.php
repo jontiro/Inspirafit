@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 
-<form action="Paquete.php" method="POST">
+<form action="ControlGestionPaquetes.php" method="POST">
     <label for="nombre">Nombre del paquete:</label>
     <input type="text" name="nombre" id="nombre" required><br>
     
