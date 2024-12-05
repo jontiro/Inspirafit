@@ -2,83 +2,103 @@
 namespace Entity;
 class Clase
 {
-    private $materia; // materia
-    private $Profesor;
-    private $Cupo;
-    private $salonClase;
-    private $Horario;
+    private $materia;
+    private $profesor;
+    private $cupo;
+    private $salon;
+    private $horario;
     // Getters
 
     /**
      * @param $materia String
-     * @param $Profesor String
-     * @param $Cupo int
-     * @param $Salon_Clase String
-     * @param $Horario String
+     * @param $profesor String
+     * @param $cupo int
+     * @param $salon String
+     * @param $horario String
      */
-    public function __construct($materia, $Profesor, $Cupo, $Salon_Clase, $Horario)
-    {
+
+    public function __construct($materia, $profesor, $cupo, $salon, $horario){
         $this->materia = $materia;
-        $this->Profesor = $Profesor;
-        $this->Cupo = $Cupo;
-        $this->salonClase = $Salon_Clase;
-        $this->Horario = $Horario;
+        $this->profesor = $profesor;
+        $this->cupo = $cupo;
+        $this->salon = $salon;
+        $this->horario = $horario;
     }
 
-    public function getMateria(): string
+    public function getMateria()
     {
         return $this->materia;
     }
 
-    public function setMateria(string $materia): void
+    public function setMateria($materia)
     {
         $this->materia = $materia;
     }
 
-    public function getProfesor(): string
+    public function getProfesor()
     {
-        return $this->Profesor;
+        return $this->profesor;
     }
 
-    public function setProfesor(string $Profesor): void
+    public function setProfesor(string $profesor)
     {
-        $this->Profesor = $Profesor;
+        $this->profesor = $profesor;
     }
 
-    public function getCupo(): int
+    public function getCupo()
     {
-        return $this->Cupo;
+        return $this->cupo;
     }
 
-    public function setCupo(int $Cupo): void
+    public function setCupo(int $cupo)
     {
-        $this->Cupo = $Cupo;
+        $this->cupo = $cupo;
     }
 
-    public function getSalonClase(): string
+    public function getSalon()
     {
-        return $this->salonClase;
+        return $this->salon;
     }
 
-    public function setSalonClase(string $salonClase): void
+    public function setSalon(string $salon)
     {
-        $this->salonClase = $salonClase;
+        $this->salon = $salon;
     }
 
-    public function getHorario(): string
+    public function getHorario()
     {
-        return $this->Horario;
+        return $this->horario;
     }
 
-    public function setHorario(string $Horario): void
+    public function setHorario(string $horario)
     {
-        $this->Horario = $Horario;
+        $this->horario = $horario;
     }
 
-    public function guardar($conexion) {
-        $stmt = $conexion->prepare("INSERT INTO clases (salon, materia, profesor, cupo, horario) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("sssds", $this->salonClase, $this->materia, $this->Profesor, $this->Cupo, $this->Horario);
-        return $stmt->execute();
+
+
+
+
+
+    public function guardar($db) {
+        try{
+        $query = "INSERT INTO clases (salon, materia, profesor, 
+                    cupo, horario) VALUES (?, ?, ?, ?, ?)";
+
+        $stmt = $db->prepare($query);
+
+        if (!$stmt) return "Error al preparar la consulta: " . $db->error;
+
+        $stmt->bind_param("sssis", $this->salon, $this->materia,
+            $this->profesor, $this->cupo, $this->horario);
+
+        // Ejecutar la consulta
+        if ($stmt->execute()) return "Clase guardada exitosamente.";
+        else return "Error al guardar la clase: " . $stmt->error;
+
+        } catch (Exception $e) {
+            return "Error: " . $e->getMessage();
+        }
     }
 
     public static function obtenerTodas($conexion) {
@@ -90,7 +110,5 @@ class Clase
         $stmt->bind_param("i", $id);
         return $stmt->execute();
     }
-
 }
-
 ?>

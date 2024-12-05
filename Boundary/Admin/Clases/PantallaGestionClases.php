@@ -1,3 +1,10 @@
+<?php
+// Incluir el archivo PHP donde está la función mostrarTabla
+include_once (__DIR__ . '/../../../conf/BaseDatos.php');
+include_once(__DIR__ . '/../../../Control/ControlGestionClases.php');
+$conexion = BaseDatos::getConexion();
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -39,48 +46,24 @@
         <a href="NuevaClase.html">
             <button class="btn shadow-effect">Nueva Clase</button></a>
         <a href="ModificarClase.html">
-            <button class="btn shadow-effect">Modificar Clases</button></a>
+            <button class="btn shadow-effect">Modificar Clases</button></a><br>
 
         <?php
-    // Incluir el archivo PHP que maneja la lógica de la base de datos
-    include_once(__DIR__ . '/../Control/ControlGestionClases.php');
-    ?>
+        // Asumiendo que $conexion ya está definida en el archivo ControlGestionClases.php
+         Control\mostrarTabla($conexion);
+        ?>
 
-        <h2>Clases Disponibles</h2>
+        <button class="btn shadow-effect" onclick="window.location.href='PantallaGestionClases.php?descargar_pdf=true';">Descargar como PDF</button>
+
+
         <?php
-    // El archivo ControlGestionClases.php ya tiene la lógica para obtener las clases de la base de datos
-    // Entonces solo imprimimos la tabla aquí
-    if ($resultado->num_rows > 0) {
-        echo "<table border='1'>";
-        echo "<tr><th>ID</th><th>Salón</th><th>Materia</th><th>Profesor</th><th>Cupo</th><th>Horario</th><th>Acciones</th></tr>";
-
-        while ($fila = $resultado->fetch_assoc()) {
-        echo "<tr>";
-            echo "<td>" . $fila['id'] . "</td>";
-            echo "<td>" . $fila['salon'] . "</td>";
-            echo "<td>" . $fila['materia'] . "</td>";
-            echo "<td>" . $fila['profesor'] . "</td>";
-            echo "<td>" . $fila['cupo'] . "</td>";
-            echo "<td>" . $fila['horario'] . "</td>";
-            echo "<td>
-                <form action='ControlGestionClases.php' method='POST' style='display:inline;'>
-                    <input type='hidden' name='accion' value='eliminar'>
-                    <input type='hidden' name='id' value='" . $fila['id'] . "'>
-                    <button type='submit' onclick='return confirm(\"¿Estás seguro de que quieres eliminar esta clase?\");'>Eliminar</button>
-                </form>
-            </td>";
-            echo "</tr>";
-        }
-        echo "</table>";
-        } else {
-        echo "<p>No hay clases disponibles.</p>";
+        if (isset($_GET['descargar_pdf']) && $_GET['descargar_pdf'] == 'true') {
+        // Llamar al metodo estático para generar el PDF
+        Control\generarPDF($conexion);
+        exit(); // Detener la ejecución del script después de generar el PDF
         }
         ?>
-        <br>
-
-        <button class="btn shadow-effect">Descargar como PDF</button>
     </div>
-
 
 </div>
 </body>
