@@ -1,5 +1,5 @@
 <?php
-
+namespace Entity;
 class Alumno{
     private $contrasena;
     private $nombre;
@@ -97,7 +97,7 @@ public function setProfesion($profesion) {
     $this->profesion = $profesion;
 }
 
-public function setLugarEjerce($lugar_ejerce) {
+public function setlugarEjerce($lugar_ejerce) {
     $this->lugar_ejerce = $lugar_ejerce;
 }
 
