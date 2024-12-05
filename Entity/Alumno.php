@@ -1,6 +1,6 @@
 <?php
 namespace Entity;
-class Alumno{
+class   Alumno{
     private $contrasena;
     private $nombre;
     private $apellidoP;

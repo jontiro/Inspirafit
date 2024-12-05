@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once(__DIR__ . '/../conf/BaseDatos.php'); // Asegúrate de que la conexión esté incluida
+include_once(__DIR__ . '/../conf/BaseDatos.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Sanear los datos ingresados
@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $costo = $_POST['costo'];
     $numero_clases = $_POST['numero_clases'];
 
-    // Usar la conexión `mysqli`
+    // conexion sqli
     $query = "INSERT INTO paquetes (nombre_paquete, fecha_inicio, fecha_vencimiento, costo, numero_clases) VALUES (?, ?, ?, ?, ?)";
     $stmt = $conexion->prepare($query);
 

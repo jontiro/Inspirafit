@@ -87,7 +87,7 @@ function mostrarTabla($conexion) {
 function generarPDF($conexion)
     {
         // Incluir la biblioteca FPDF
-        require_once(__DIR__ . '/../libs/fpdf/fpdf.php');  // Asegúrate de que la ruta sea correcta
+        require_once(__DIR__ . '/../libs/fpdf/fpdf.php');
 
         // Crear un objeto FPDF
         $pdf = new FPDF();
